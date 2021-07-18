@@ -13,5 +13,13 @@ body {
   }
  .cart-item .right-block{
 
-   margin: 20px;
+   margin-left: 20px;
+   display: flex;
+   flex-direction: column;
+ }
+ .cart-item .right-block .action-icons{
+   height: 25px;
+   width: 25px;
+   margin-right: 5px;
+   
  }
