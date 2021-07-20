@@ -2,39 +2,8 @@ import React from 'react';
 
 class CartItem extends React.Component {
 
-    increaseQuantity = () => {
-        // this.state.qty = this.state.qty + 1;
-
-        //this is 1 form of setState where you're not concern with the prev state of component.
-        // this.setState({
-        //     qty: this.state.qty + 1
-        // });
-        //console.log(this.state);
-
-        //this is 2 form of setState where you use prevState to modify the value and change it to new value.
-        this.setState((prevState) => {
-            return {
-                qty: prevState.qty + 1
-            }
-        });
-
-    }
-
-    decreaseQuantity = () => {
-        this.setState((prevState) => {
-            if (prevState.qty != 0) {
-                return {
-                    qty: prevState.qty - 1
-                }
-            } else {
-                return {
-                    qty: prevState.qty
-                }
-            }
-        });
-    }
     render() {
-        console.log(this.props);
+        //console.log(this.props);
         const { price, title, qty } = this.props.product;
         return (
             <div className="cart-item">
@@ -50,7 +19,7 @@ class CartItem extends React.Component {
                             alt="increase"
                             className="action-icons"
                             src="https://image.flaticon.com/icons/png/512/992/992651.png"
-                            onClick={this.increaseQuantity}
+                            onClick={() => this.props.increaseQuantity(this.props.product)}
                         />
                         <img
                             alt="decrease"
