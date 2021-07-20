@@ -1,4 +1,3 @@
-import { getSuggestedQuery } from '@testing-library/react';
 import React from 'react';
 
 class CartItem extends React.Component {
@@ -51,7 +50,7 @@ class CartItem extends React.Component {
                     <img style={style.image} />
                 </div>
                 <div className="right-block">
-                    <div style={{ fontSize: 25 }}>{title}</div>
+                    <div style={{ fontSize: 20 }}>{title}</div>
                     <div style={{ color: '#777' }}>Rs {price}</div>
                     <div style={{ color: '#777' }}>Qty: {qty}</div>
                     <div className=".cart-item-actions">
