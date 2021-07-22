@@ -1,5 +1,6 @@
 import React from 'react';
 import CartItem from './CartItem';
+import Navbar from './Navbar';
 
 class Cart extends React.Component {
 
@@ -68,6 +69,8 @@ class Cart extends React.Component {
                 {products.map((product) => {
 
                     return (
+
+
                         <CartItem
                             product={product}
                             key={product.id}
