@@ -12,21 +12,21 @@ class App extends React.Component {
           qty: 1,
           price: 99,
           title: 'watch',
-          img: '',
+          img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80',
           id: 1
         },
         {
           qty: 4,
           price: 444,
           title: 'mobile',
-          img: '',
+          img: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80',
           id: 2
         },
         {
           qty: 10,
           price: 4444,
           title: 'laptop',
-          img: '',
+          img: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80',
           id: 3
         }
       ]
@@ -69,6 +69,16 @@ class App extends React.Component {
     });
     return count;
   }
+  getTotal = () => {
+    const { products } = this.state;
+    let TotalPrice = 0;
+
+    products.map((product) => {
+      TotalPrice = TotalPrice + (product.qty * product.price)
+    });
+
+    return TotalPrice;
+  }
   render() {
     const { products } = this.state;
 
@@ -82,6 +92,9 @@ class App extends React.Component {
           OnDeleteItem={this.handlerDeleteItem}
 
         />
+        <div style={{ fontSize: 25, Padding: 10 }}>
+          Total: {this.getTotal()}
+        </div>
       </div>
     );
   }
