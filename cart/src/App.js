@@ -1,36 +1,62 @@
 import React from "react";
 import Cart from "./Cart";
 import Navbar from "./Navbar";
+import firebase from 'firebase/app'
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      products: [
-        {
-
-          qty: 1,
-          price: 99,
-          title: 'watch',
-          img: 'https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1868&q=80',
-          id: 1
-        },
-        {
-          qty: 4,
-          price: 444,
-          title: 'mobile',
-          img: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80',
-          id: 2
-        },
-        {
-          qty: 10,
-          price: 4444,
-          title: 'laptop',
-          img: 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1868&q=80',
-          id: 3
-        }
-      ]
+      products: [],
+      loading: true
     }
+  }
+  componentDidMount() {
+
+    //without listen data is updated when we refresh 
+    // firebase
+    //   .firestore()
+    //   .collection('products')
+    //   .get()
+    //   .then((snapshot) => {
+    //     console.log(snapshot);
+
+    //     snapshot.docs.map((doc) => {
+    //       console.log(doc.data());
+    //     })
+
+    //     const products = snapshot.docs.map((doc) => {
+    //       const data = doc.data();
+    //       data['id'] = doc.id;
+    //       return data;
+    //     })
+    //     this.setState({
+    //       products: products,
+    //       loading: false
+    //     })
+    //   })
+
+    //with listen so that data update automatically
+    firebase
+      .firestore()
+      .collection('products')
+      .onSnapshot((snapshot) => {
+        console.log(snapshot);
+
+        snapshot.docs.map((doc) => {
+          console.log(doc.data());
+        })
+
+        const products = snapshot.docs.map((doc) => {
+          const data = doc.data();
+          data['id'] = doc.id;
+          return data;
+        })
+        this.setState({
+          products: products,
+          loading: false
+        })
+      })
   }
   handlerIncreaseQuantity = (product) => {
     // console.log('Hey! increase the quantity of this product', product);
@@ -48,7 +74,7 @@ class App extends React.Component {
     const items = products.filter((item) => item.id !== id);
     this.setState({
       products: items
-    })
+    });
   }
   handlerDecreaseQuantity = (product) => {
     const { products } = this.state;
@@ -80,7 +106,7 @@ class App extends React.Component {
     return TotalPrice;
   }
   render() {
-    const { products } = this.state;
+    const { products, loading } = this.state;
 
     return (
       <div className="App">
@@ -92,6 +118,7 @@ class App extends React.Component {
           OnDeleteItem={this.handlerDeleteItem}
 
         />
+        {loading && <h1>Loading Products...</h1>}
         <div style={{ fontSize: 25, Padding: 10 }}>
           Total: {this.getTotal()}
         </div>
