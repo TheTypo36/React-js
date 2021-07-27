@@ -61,13 +61,18 @@ class App extends React.Component {
   handlerIncreaseQuantity = (product) => {
     // console.log('Hey! increase the quantity of this product', product);
     const { products } = this.state;
-    const index = products.indexOf(product);
-    products[index].qty += 1;
 
-    this.setState({
-      products: products
-    })
-
+    const docRef = this.db.collection('products').doc(product.id);
+    docRef
+      .update({
+        qty: product.qty + 1
+      })
+      .then(() => {
+        console.log("the product has been updated");
+      })
+      .catch((error) => {
+        console.log('error in updating the product', error);
+      })
   }
   handlerDeleteItem = (id) => {
     const { products } = this.state;
@@ -78,14 +83,20 @@ class App extends React.Component {
   }
   handlerDecreaseQuantity = (product) => {
     const { products } = this.state;
-    const index = products.indexOf(product);
-    if (products[index].qty == 0) {
+    const docRef = this.db.collection('products').doc(product.id);
+    if (products.qty == 0) {
       return;
     }
-    products[index].qty -= 1;
-    this.setState({
-      products: products
-    })
+    docRef
+      .update({
+        qty: product.qty - 1
+      })
+      .then(() => {
+        console.log('the qty is decreased');
+      })
+      .catch((error) => {
+        console.log('error in decreasing the qty', error);
+      })
   }
   getCartCount = () => {
     const { products } = this.state;
