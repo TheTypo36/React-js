@@ -76,10 +76,15 @@ class App extends React.Component {
   }
   handlerDeleteItem = (id) => {
     const { products } = this.state;
-    const items = products.filter((item) => item.id !== id);
-    this.setState({
-      products: items
-    });
+    const docRef = this.db.collection('products').doc(id);
+    docRef
+      .delete()
+      .then(() => {
+        console.log('the product is successfully deleted');
+      })
+      .catch((error) => {
+        console.log('error in deleting the product', error);
+      })
   }
   handlerDecreaseQuantity = (product) => {
     const { products } = this.state;
