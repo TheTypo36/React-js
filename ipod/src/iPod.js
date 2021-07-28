@@ -1,20 +1,27 @@
 import React from 'react';
+import Screen from './Screen';
 
-
-const iPod = () => {
+const Ipod = () => {
     return (
-        <div className="ipod">
-            <div id="screen">
-
-                <div id="menu-btns">
-
-                </div>
-            </div>
+        <div className="Ipod" style={style.Ipod}>
+            <Screen />
         </div>
     )
 }
 
 const style = {
-    height: 200,
-    width: 
+    Ipod: {
+
+        height: 450,
+        width: 200,
+        backgroundColor: '#EAEEF2',
+        border: '4px solid #293031 ',
+        margin: 'auto',
+        position: 'relative',
+        top: '20vh',
+        borderRadius: '40px',
+        boxShadow: '#969891 -7px 5px 16px 2px'
+    }
 }
+
+export default Ipod;
