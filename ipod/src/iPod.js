@@ -1,7 +1,7 @@
 import React from 'react';
 import Screen from './Screen';
 
-const Ipod = () => {
+const Ipod = (props) => {
     return (
         <div className="Ipod" style={style.Ipod}>
             <Screen />

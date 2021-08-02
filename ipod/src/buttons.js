@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+const Button = (props) => {
 
-const Button = () => {
+
     return (
 
         <div id="outer-circle" style={style.outerCircle}>
-            <div style={style.menu}>Menu</div>
+            <div style={style.menu} onClick={props.displayMenu}>Menu</div>
             <img alt="backward" src="https://image.flaticon.com/icons/png/128/3/3778.png" style={style.backward} />
             <img alt="play" src="https://image.flaticon.com/icons/png/128/64/64595.png" style={style.play} />
             <div id="inner-circle" style={style.innerCircle}>
@@ -13,6 +14,7 @@ const Button = () => {
             </div>
         </div>
     )
+
 }
 
 const style = {
@@ -44,6 +46,7 @@ const style = {
         position: 'relative',
         top: '47px',
         left: '6px',
+        cursor: 'pointer',
     },
     forward: {
         width: "20px",
@@ -51,6 +54,7 @@ const style = {
         position: 'relative',
         top: '28px',
         left: '80px',
+        cursor: 'pointer',
 
 
     },
@@ -59,13 +63,16 @@ const style = {
         height: "20px",
         position: 'relative',
         top: '100px',
-        left: '45px'
+        left: '45px',
+        cursor: 'pointer',
+
     },
     menu: {
         position: 'relative',
         top: '10px',
         left: '55px',
 
+        cursor: 'pointer',
 
     }
 }
