@@ -4,6 +4,7 @@ import Menu from "./Menu";
 import HumbergerIcon from "./HumburgerIcon";
 import FlowCover from "./FlowCover";
 import Games from "./Games";
+import Setting from "./Setting";
 class Screen extends react.Component {
     constructor() {
         super();
@@ -31,6 +32,11 @@ class Screen extends react.Component {
             Option: 3,
         });
     }
+    displaySetting = () => {
+        this.setState({
+            Option: 4,
+        });
+    }
     render() {
         const { Option } = this.state;
 
@@ -48,6 +54,8 @@ class Screen extends react.Component {
                                         <Menu
                                             displayFlowCover={this.displayFlowCover}
                                             displayGame={this.displayGame}
+                                            displaySetting={this.displaySetting}
+
                                         />
                                     )
                                     break;
@@ -61,6 +69,10 @@ class Screen extends react.Component {
                                         <Games />
                                     )
                                     break;
+                                case 4:
+                                    return (
+                                        <Setting />
+                                    )
                                 default:
                                     return (
                                         <HumbergerIcon />

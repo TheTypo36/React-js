@@ -1,19 +1,19 @@
 import React from 'react';
 
-const Games = () => {
+const Setting = () => {
     return (
-        <div style={style.games}>
-            <div style={style.divTwo}>
 
-                <img style={style.DiceImg} alt="Game" src="https://image.flaticon.com/icons/png/512/246/246569.png" />
-                <h3>Games</h3>
+        <div style={style.setting}>
+            <div style={style.DivTwo}>
+                <img style={style.SettingImg} alt="setting" src="https://image.flaticon.com/icons/png/512/126/126472.png" />
+                <h3 > Setting </h3>
             </div>
         </div>
     )
 }
 
 const style = {
-    games: {
+    setting: {
         textAlign: 'center',
         width: '100%',
         height: '60%',
@@ -25,13 +25,13 @@ const style = {
         borderTopLeftRadius: '37px',
         borderTopRightRadius: '37px',
     },
-    DiceImg: {
+    SettingImg: {
         width: 100,
         height: 100,
     },
-    divTwo: {
+    DivTwo: {
         marginTop: '10vh',
     }
 }
 
-export default Games;
+export default Setting;

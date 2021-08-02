@@ -15,7 +15,7 @@ const Menu = (props) => {
                 <li id="Games" onClick={props.displayGame}>
                     Games
                 </li>
-                <li id="Setting">
+                <li id="Setting" onClick={props.displaySetting}>
                     Setting
                 </li>
             </ul>
