@@ -1,6 +1,7 @@
 import React from 'react';
 import Screen from './Screen';
 
+//whole Ipod component 
 const Ipod = (props) => {
     return (
         <div className="Ipod" style={style.Ipod}>
@@ -9,6 +10,7 @@ const Ipod = (props) => {
     )
 }
 
+//and the style of ipod component
 const style = {
     Ipod: {
 
