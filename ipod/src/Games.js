@@ -1,5 +1,5 @@
 import React from 'react';
-
+//component when someone click on games option
 const Games = () => {
     return (
         <div style={style.games}>
@@ -12,6 +12,7 @@ const Games = () => {
     )
 }
 
+//style for game component
 const style = {
     games: {
         textAlign: 'center',

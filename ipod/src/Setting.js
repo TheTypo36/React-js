@@ -1,5 +1,7 @@
 import React from 'react';
 
+//component when someone click on Setting option
+
 const Setting = () => {
     return (
 
@@ -11,7 +13,7 @@ const Setting = () => {
         </div>
     )
 }
-
+//style for Setting component
 const style = {
     setting: {
         textAlign: 'center',

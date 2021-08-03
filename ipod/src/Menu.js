@@ -1,15 +1,20 @@
 import React from 'react';
 import './MenuStyle.css';
+
+//component when someone click on menu option
+
 const Menu = (props) => {
     console.log(props);
     return (
         <div id="menu" style={style.menu}>
             <h3 style={style.headingTwo}>IPOD</h3>
+            {/* {list with onclick event for rendering different component} */}
             <ul style={style.menuUl}>
+
                 <li id="cover-Flow" onClick={props.displayFlowCover}>
                     Cover Flow
                 </li>
-                <li id="Music">
+                <li id="Music" onClick={props.displayMusic}>
                     Music
                 </li>
                 <li id="Games" onClick={props.displayGame}>
@@ -23,6 +28,7 @@ const Menu = (props) => {
     )
 }
 
+//style for Menu component
 const style = {
     menu: {
         height: '58%',
