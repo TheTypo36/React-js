@@ -1,19 +1,24 @@
 import react from "react";
 import Button from "./buttons";
-import Menu from "./Menu";
-import HumbergerIcon from "./HumburgerIcon";
-import FlowCover from "./FlowCover";
-import Games from "./Games";
-import Setting from "./Setting";
-import Music from "./Music";
+import Menu from "./Screen/Menu";
+import HumbergerIcon from "./Screen/HumburgerIcon";
+import FlowCover from "./Screen/FlowCover";
+import Games from "./Screen/Games";
+import Setting from "./Screen/Setting";
+import Music from "./Screen/Music";
+import ZingTouch from 'zingtouch';
 class Screen extends react.Component {
 
     constructor() {
         super();
+        this.temp_change_in_angle = 0;
+        this.temp_selected = 0;
         //state for rendering different views acc. to the option.
         this.state = {
 
-            Option: 0
+            Option: 0,
+            mainList: ['Games', 'Music', 'CoverFlow', 'Setting'],
+            Selected: 0
 
         }
     }
@@ -120,6 +125,8 @@ const style = {
         height: '100%',
         position: 'absolute',
         borderRadius: '34px',
+        transition: 'transform ease-in-out 2.0s'
+
     },
     btnContainer: {
         width: '100%',

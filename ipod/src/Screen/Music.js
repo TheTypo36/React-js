@@ -34,6 +34,8 @@ const style = {
         borderTopLeftRadius: 40,
         zIndex: 1,
         padding: 5,
+        transition: 'transform ease-in-out 2.0s'
+
     },
     headingTwo: {
         marginLeft: 30,

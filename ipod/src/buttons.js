@@ -4,13 +4,12 @@ const Button = (props) => {
 
     return (
 
-        <div id="outer-circle" style={style.outerCircle}>
-            <div style={style.menu} onClick={props.displayMenu}>Menu</div>
+        <div className="OuterCircle" style={style.outerCircle}>
+            <div className="InnerCircle" style={style.menu} onClick={props.displayMenu}>Menu</div>
             <img alt="backward" src="https://image.flaticon.com/icons/png/128/3/3778.png" style={style.backward} />
             <img alt="play" src="https://image.flaticon.com/icons/png/128/64/64595.png" style={style.play} />
+            <img alt="forward" src="https://image.flaticon.com/icons/png/128/1/1824.png" style={style.forward} />
             <div id="inner-circle" style={style.innerCircle}>
-                <img alt="forward" src="https://image.flaticon.com/icons/png/128/1/1824.png" style={style.forward} />
-
             </div>
         </div>
     )
