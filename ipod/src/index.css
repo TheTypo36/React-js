@@ -12,3 +12,85 @@ body {
     background-position: center;
 
 }
+/***************************menu **************************************************************/
+.menu{
+  height: 58%;
+  width: 50%;
+  background-color: #C1C2C4;
+  color: black;
+  position: absolute;
+  top: 0;
+  opacity: 0.7;
+  border-top-left-radius: 40;
+  z-index: 5;
+  padding: 5,
+}
+/***********************Button Container***********************************************/
+.button-container{
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222731;
+  margin: 10px auto 10px auto;
+	color: rgb(78, 78, 78);
+  font-size: 15px;
+  font-weight: bolder;
+  transition: tranform ease-in-out 0.2s;
+  padding: 10px;
+}
+.Select{
+  height: 50%;
+  width: 50%;
+  background-color: #1B1E26;
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	color: rgb(78, 78, 78);
+
+}
+.Play{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 10px;
+  cursor: pointer;
+  background-color: transparent;
+	color: rgb(78, 78, 78);
+
+}
+.Forward{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+	color: rgb(78, 78, 78);
+
+}
+.Backward{
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 10px;
+  cursor: pointer;
+	color: rgb(78, 78, 78);
+
+}
+.Menu{
+  position: absolute;
+  top: 10px;
+  cursor: pointer;
+}
+
+
+.selected{
+  width: 100%;
+  height: auto;
+  background-color: blue;
+  color: red 
+}

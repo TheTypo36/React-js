@@ -1,4 +1,5 @@
 import React from 'react';
+import MenuItem from './MenuItem';
 import './MenuStyle.css';
 
 //component when someone click on menu option
@@ -9,21 +10,9 @@ const Menu = (props) => {
         <div id="menu" style={style.menu}>
             <h3 style={style.headingTwo}>IPOD</h3>
             {/* {list with onclick event for rendering different component} */}
-            <ul style={style.menuUl}>
 
-                <li id="cover-Flow" onClick={props.displayFlowCover}>
-                    Cover Flow
-                </li>
-                <li id="Music" onClick={props.displayMusic}>
-                    Music
-                </li>
-                <li id="Games" onClick={props.displayGame}>
-                    Games
-                </li>
-                <li id="Setting" onClick={props.displaySetting}>
-                    Setting
-                </li>
-            </ul>
+
+            <MenuItem OptionList={props.OptionList} Selected={props.Selected} />
         </div>
     )
 }

@@ -76,6 +76,8 @@ class Screen extends react.Component {
                                             displayGame={this.displayGame}
                                             displaySetting={this.displaySetting}
                                             displayMusic={this.displayMusic}
+                                            OptionList={this.state.mainList}
+                                            Selected={this.state.Selected}
                                         />
                                     )
                                     break;
