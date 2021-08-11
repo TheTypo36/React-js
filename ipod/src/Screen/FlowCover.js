@@ -1,5 +1,4 @@
 import React from 'react';
-import './flowcover.css';
 const FlowCover = () => {
     return (
         <div style={style.flowcover}>

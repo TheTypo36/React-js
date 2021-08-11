@@ -1,5 +1,4 @@
 import React from 'react'
-import './Music.css';
 
 //component when someone click on music option
 const Music = () => {
