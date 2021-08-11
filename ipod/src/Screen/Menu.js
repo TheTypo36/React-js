@@ -4,7 +4,6 @@ import MenuItem from './MenuItem';
 //component when someone click on menu option
 
 const Menu = (props) => {
-    console.log(props);
     return (
         <div className="menu" >
             <div className="Menu-heading">
@@ -12,7 +11,6 @@ const Menu = (props) => {
                 <h3>IPOD</h3>
             </div>
             {/* {list with onclick event for rendering different component} */}
-
 
             <MenuItem OptionList={props.OptionList} Selected={props.Selected} />
         </div>

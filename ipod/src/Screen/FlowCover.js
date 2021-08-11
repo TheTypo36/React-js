@@ -15,7 +15,7 @@ const style = {
         width: '100%',
         height: '60%',
         backgroundColor: 'white',
-        zIndex: '10',
+        zIndex: '1',
         position: 'absolute',
         top: 0,
         left: 0,
