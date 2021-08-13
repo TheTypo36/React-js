@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
@@ -48,4 +49,84 @@ code {
   border: none;
 
 
+}
+/********************************main**************************/
+.main{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+.main .tabs{
+  display: flex;
+  font-size: 20px;
+}
+.main .tabs .tab{
+  border: 2px solid #e1e1e1;
+  padding: 10px;
+  background-color: #fff;
+  margin-right: 13px;
+
+}
+/***************************movie card************************/
+.movie-card{
+  display: flex;
+  background-color: #fff;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #f1f1f1;
+}
+.movie-card:not(:first-child){
+  margin-top: 20px;
+}
+.movie-card:last-child{
+  margin-bottom: 50px;
+}
+.movie-card .left{
+  flex: 1;
+}
+.movie-card .left img{
+  height: 250px;
+}
+.movie-card .right{
+  position: relative;
+  flex: 10;
+}
+.movie-card .title{
+  padding: 10px 20px;
+  font-size: 25px;
+  font-weight: 600;
+}
+.movie-card .plot{
+  margin-top: 20px;
+  padding: 0 20px;
+}
+.card-footer{
+   display: flex;
+   justify-content: space-between;
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 10px 20px;
+}
+.card-footer .rating{
+  font-size: 20px;
+  font-weight: 600;
+}
+.card-footer button{
+  font-size: 15px;
+  text-shadow: none;
+  border-radius: 3px;
+  border: none;
+  font-weight: 600;
+  padding: 7px 10px;
+}
+.favourite-btn{
+  background-color: #2185d0;
+  color: #fff;
 }
