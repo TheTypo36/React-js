@@ -10,6 +10,14 @@ const store = createStore(movies);
 
 console.log('store', store);
 console.log('state', store.getState());
+
+store.dispatch({
+  type: 'ADD_MOVIES',
+  movies: [{
+    name: 'supername'
+  }]
+});
+console.log('after state', store.getState());
 ReactDOM.render(
   <React.StrictMode>
     <App />
