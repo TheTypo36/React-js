@@ -2,9 +2,10 @@ import React from 'react';
 import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
-import addMovie from '../action';
+import { addMovie } from '../action';
 
 class App extends React.Component {
+
   componentDidMount() {
     const { store } = this.props;
     store.subscribe(() => {
@@ -15,6 +16,16 @@ class App extends React.Component {
     //dispatch action
     store.dispatch(addMovie(data));
     console.log('state', this.props.store.getState());
+  }
+  isMovieFavourite = (movie) => {
+    const { favourites } = this.props.store.getState();
+    const index = favourites.indexOf(movie);
+    if (index !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+
   }
   render() {
     console.log('render', this.props.store.getState());
@@ -29,7 +40,7 @@ class App extends React.Component {
           </div>
           <div className="list">
             {list.map((movie, index) => (
-              <MovieCard movie={movie} key={`movies-${index}`} />
+              <MovieCard movie={movie} isMovieFavourite={this.isMovieFavourite(movie)} dispatch={this.props.store.dispatch} key={`movies-${index}`} />
             ))}
           </div>
         </div>
