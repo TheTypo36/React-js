@@ -27,6 +27,8 @@ class App extends React.Component {
     }
 
   }
+
+
   render() {
     console.log('render', this.props.store.getState());
     const { list } = this.props.store.getState();
@@ -36,7 +38,7 @@ class App extends React.Component {
         <div className="main">
           <div className="tabs">
             <div className="tab">Movie</div>
-            <div className="tab">favourites</div>
+            <div className="tab" >favourites</div>
           </div>
           <div className="list">
             {list.map((movie, index) => (
