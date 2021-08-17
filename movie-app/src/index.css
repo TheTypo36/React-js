@@ -71,6 +71,10 @@ code {
   margin-right: 13px;
 
 }
+.active-tabs{
+  background-color: #2185d0 !important;
+  color: #fff;
+}
 /***************************movie card************************/
 .movie-card{
   display: flex;
@@ -133,4 +137,9 @@ code {
 .Unfavourite-btn{
   color: #FFf;
   background-color:tomato;
+}
+.no-movies{
+  padding: 20px 0;
+  font-size: 20px;
+  color: #6d6d6d;
 }

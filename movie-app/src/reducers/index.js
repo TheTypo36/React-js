@@ -1,9 +1,9 @@
 import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
-import { ADD_MOVIES, ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE } from "../action";
+import { ADD_MOVIES, ADD_TO_FAVOURITE, REMOVE_FROM_FAVOURITE, SET_SHOW_FAVOURITES } from "../action";
 const initialMovieState = {
     list: [],
     favourites: [],
-    show: [],
+    showFavourites: false,
 }
 export default function movies(state = initialMovieState, action) {
     // if (action.type === ADD_MOVIES) {
@@ -35,6 +35,13 @@ export default function movies(state = initialMovieState, action) {
                 ...state,
                 favourites: filteredArray,
             }
+            break;
+        case SET_SHOW_FAVOURITES:
+            return {
+                ...state,
+                showFavourites: action.val,
+            }
+            break;
         default:
             return state;
             break;
