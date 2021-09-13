@@ -1,48 +1,25 @@
 import React from 'react';
-import { addFavourite, removeFavourite } from '../action';
 
 class MovieCard extends React.Component {
-    handleFavouriteClick = () => {
-        const { movie } = this.props;
-        this.props.dispatch(addFavourite(movie));
-    }
-    handleUnfavouriteClick = () => {
-        const { movie } = this.props;
-        this.props.dispatch(removeFavourite(movie));
-    }
     render() {
-        const { movie, isMovieFavourite } = this.props;
+        const { movie } = this.props;
         return (
             <div className="movie-card">
-
                 <div className="left">
-                    <img alt="movie-poster" src={movie.Poster} />
+                    <img src={movie.Poster} alt="movie-poster" />
                 </div>
                 <div className="right">
-                    <div className="title">
-                        {movie.Title}
-                    </div>
-                    <div className="plot">
-                        {movie.Plot}
-                    </div>
+                    <div className="title">{movie.Title}</div>
+                    <div className="plot">{movie.Plot}</div>
                     <div className="card-footer">
-                        <div className="rating">
-                            {movie.imdbRating}
-                        </div>
-
-                        {
-                            (isMovieFavourite == false) ?
-                                <button className="favourite-btn" onClick={this.handleFavouriteClick}>
-                                    Favourite
-                                </button> :
-                                <button className="Unfavourite-btn" onClick={this.handleUnfavouriteClick}>Unfavourite</button>
-                        }
+                        <div className="rating">{movie.imdbRating}</div>
+                        <button className="favourite-btn">Favourite</button>
                     </div>
-
                 </div>
             </div>
         );
     }
 }
+
 
 export default MovieCard;
