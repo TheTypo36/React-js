@@ -2,7 +2,7 @@ import React from 'react';
 import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
-
+import { addMovies } from '../action';
 class App extends React.Component {
   componentDidMount() {
     //make api call to server for the data
@@ -13,14 +13,11 @@ class App extends React.Component {
       this.forceUpdate();
     });
 
-    store.dispatch({
-      type: "ADD_MOVIES",
-      movies: data,
-    });
+    store.dispatch(addMovies(data));
     console.log('state', this.props.store.getState());
   }
   render() {
-    const movies = this.props.store.getState();
+    const { list } = this.props.store.getState();//{list:[], favourites:[]}
     console.log('render');
     return (
       <div className="App">
@@ -35,7 +32,7 @@ class App extends React.Component {
             </div>
           </div>
           <div className="List">
-            {movies.map((movie, index) => (
+            {list.map((movie, index) => (
               <MovieCard movie={movie} key={`movies-${index}`} />
             ))};
           </div>
