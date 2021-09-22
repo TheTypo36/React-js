@@ -2,7 +2,7 @@ import React from 'react';
 import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
-import { addMovies } from '../action';
+import { addMovies, setShowFavourite } from '../action';
 class App extends React.Component {
   componentDidMount() {
     //make api call to server for the data
@@ -14,27 +14,44 @@ class App extends React.Component {
     });
 
     store.dispatch(addMovies(data));
-    console.log('state', this.props.store.getState());
+  }
+  isFavourite = (movie) => {
+    const { favourites } = this.props.store.getState();
+    const index = favourites.indexOf(movie);
+    if (index === -1) {
+      return true;
+    }
+    return false;
+  }
+  onChangeTab = (val) => {
+    this.props.store.dispatch(setShowFavourite(val));
   }
   render() {
-    const { list } = this.props.store.getState();//{list:[], favourites:[]}
+    const { list, favourites, ShowFavourites } = this.props.store.getState();//{list:[], favourites:[]}
     console.log('render');
+    let displayShow = (ShowFavourites === true) ? favourites : list;
     return (
       <div className="App">
         <Navbar />
         <div className="main">
           <div className="tabs">
-            <div className="tab">
-              movies
+            <div className={`tab ${ShowFavourites ? '' : 'active-tabs'}`} onClick={() => this.onChangeTab(false)}>
+              Movies
             </div>
-            <div className="tab">
+            <div className={`tab ${ShowFavourites ? 'active-tabs' : ''}`} onClick={() => this.onChangeTab(true)}>
               Favourites
             </div>
           </div>
           <div className="List">
-            {list.map((movie, index) => (
-              <MovieCard movie={movie} key={`movies-${index}`} />
-            ))};
+            {displayShow.map((movie, index) => (
+              <MovieCard
+                store={this.props.store}
+                isFavourite={this.isFavourite}
+                movie={movie}
+                key={`movie-${index}`} />
+            ))}
+
+
           </div>
         </div>
       </div>

@@ -1,17 +1,50 @@
-import { ADD_MOVIES } from '../action';
+import { ADD_MOVIES, ADD_FAVOURITE, REMOVE_FAVOURTIE, SET_SHOW_FAVOURITE } from '../action';
 
 const initialMoviesState = {
     list: [],
     favourites: [],
+    ShowFavourites: false,
 }
 export default function movies(state = initialMoviesState, action) {
-    if (action.type === ADD_MOVIES) {
-        return {
-            ...state,
-            list: action.movies,
-        }
+    // if (action.type === ADD_MOVIES) {
+    //     return {
+    //         ...state,
+    //         list: action.movies,
+    //     }
+    // }
+    // return state;
+    //generally switch case is preffered on if-else statements
+    switch (action.type) {
+        case ADD_MOVIES:
+            return {
+                ...state,
+                list: action.movies,
+            }
+            break;
+        case ADD_FAVOURITE:
+            return {
+                ...state,
+                favourites: [action.movie, ...state.favourites],
+            }
+            break;
+        case REMOVE_FAVOURTIE:
+            const filterArray = state.favourites.filter(
+                movie => movie.Title !== action.movie.Title
+            );
+            return {
+                ...state,
+                favourites: filterArray
+            }
+            break;
+        case SET_SHOW_FAVOURITE:
+            return {
+                ...state,
+                ShowFavourites: action.val,
+            }
+        default:
+            return state;
+            break;
     }
-    return state;
-
 }
+
 
