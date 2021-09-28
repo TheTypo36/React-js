@@ -6,14 +6,20 @@ import './index.css';
 import App from './components/App';
 import rootReducer from './reducers';
 
+//first way of writing middleware
+// const logger = function ({ dispatch, getState }) {
+//   return function (next) {
+//     return function (action) {
+//       console.log('Action type is:', action.type);
+//       next(action);
+//     }
+//   }
+// }
 
-const logger = function ({ dispatch, getState }) {
-  return function (next) {
-    return function (action) {
-      console.log('Action type is:', action.type);
-      next(action);
-    }
-  }
+//second way for writting the middlware
+const logger = ({ dispatch, getState }) => (next) => (action) => {
+  console.log('Action type is:', action.type);
+  next(action);
 }
 const store = createStore(rootReducer, applyMiddleware(logger));
 console.log('store', store);
