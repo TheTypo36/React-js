@@ -3,6 +3,7 @@ import { data } from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
 import { addMovies, setShowFavourite } from '../action';
+import { StoreContext } from '../index'
 class App extends React.Component {
   componentDidMount() {
     //make api call to server for the data
@@ -62,4 +63,15 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+
+class AppWrapper extends React.Component {
+  render() {
+    return (
+      <StoreContext.Consumer>
+        {(store) => <App store={store} />}
+      </StoreContext.Consumer>
+    );
+  }
+}
+
+export default AppWrapper;

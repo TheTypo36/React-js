@@ -1,4 +1,5 @@
 import React from 'react';
+import { StoreContext } from '..';
 
 class Navbar extends React.Component {
     render() {
@@ -14,4 +15,13 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+class NavbarWrapper extends React.Component {
+    render() {
+        return (
+            <StoreContext.Consumer>
+                {(store) => <Navbar store={store} />}
+            </StoreContext.Consumer>
+        );
+    }
+}
+export default NavbarWrapper;
