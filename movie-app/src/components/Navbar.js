@@ -15,9 +15,7 @@ class Navbar extends React.Component {
     }
 }
 
-class  +
-
-    + extends React.Component {
+class NavbarWrapper extends React.Component {
     render() {
         return (
             <StoreContext.Consumer>
