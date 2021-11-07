@@ -32,6 +32,11 @@ console.log('store', store);
 export const StoreContext = createContext();
 console.log("StoreContext", StoreContext);
 
+
+
+
+
+
 class Provider extends React.Component {
   render() {
     const { store } = this.props;
@@ -46,6 +51,52 @@ class Provider extends React.Component {
 
 
 console.log('after state', store.getState());
+
+
+export function connect(callback) {
+  return function (Component) {
+    class ConnectedComponent extends React.Component {
+      constructor(props) {
+        super(props);
+        this.unsubscribe = this.props.store.subscribe(() => this.forceUpdate());
+      }
+      componentWillUnmount() {
+        this.unsubscribe();
+      }
+      render() {
+
+        const { store } = this.props;
+        const state = store.getState();
+        const dataToBePassed = callback(state);
+        return (
+
+          <Component
+            {...dataToBePassed}
+            dispatch={store.dispatch}
+          />
+        );
+      }
+    }
+
+
+
+    class ConnectedComponentWrapper extends React.Component {
+      render() {
+        return (
+          <StoreContext.Consumer>
+            {(store) =>
+              <ConnectedComponent store={store} />
+            }
+          </StoreContext.Consumer>
+        );
+      }
+    }
+    return ConnectedComponentWrapper;
+
+  };
+
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <App />

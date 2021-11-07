@@ -3,16 +3,16 @@ import { addFavourite, removeFavourite } from '../action';
 class MovieCard extends React.Component {
     handleFavouriteClick = () => {
         const { movie } = this.props;
-        this.props.store.dispatch(addFavourite(movie));
-        console.log('state', this.props.store.getState());
+        this.props.dispatch(addFavourite(movie));
+        console.log('state', this.props);
 
 
 
     }
     handleUnfavouriteClick = () => {
         const { movie } = this.props;
-        this.props.store.dispatch(removeFavourite(movie));
-        console.log('state', this.props.store.getState());
+        this.props.dispatch(removeFavourite(movie));
+        console.log('state', this.props);
     }
     render() {
         const { movie } = this.props;
