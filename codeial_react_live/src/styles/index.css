@@ -64,14 +64,29 @@ code {
 .post-actions {
   display: flex;
   padding: 10px;
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin-top: 10px;
+  width: 98.4%;
+  border: 1px solid #ced0d4;
+  border-radius: 5px;
 }
 .FivepxLeftMargin {
-  margin-left: 15px;
+  margin-left: 10px;
 }
-
+.post-comment-box {
+  width: 98%;
+  margin-left: 10px;
+}
+.post-comment-box input {
+  width: inherit;
+  height: inherit;
+  border: 1px solid #ced0d4;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
 .post-actions img {
-  width: 25px;
+  width: 15px;
 }
 .post-header img {
   width: 50px;
@@ -80,4 +95,20 @@ code {
 .post-details {
   display: flex;
   flex-direction: column;
+}
+.post-comments-header {
+  display: flex;
+  margin-top: 10px;
+}
+.post-comment-author {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.post-comment-time .post-comment-like {
+  font-size: 0.5rem;
+  color: lightgray;
+}
+.post-comment-content {
+  margin-top: 10px;
+  font-size: 1.2rem;
 }

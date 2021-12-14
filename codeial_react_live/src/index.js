@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './index.css';
-import App from './components/App';
+import './styles/index.css';
+import { App } from './components';
 import { configurestore } from './store/index.js';
 
 const store = configurestore();
