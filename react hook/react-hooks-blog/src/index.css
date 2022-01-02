@@ -32,3 +32,41 @@ code {
   border: 1px solid black;
   border-radius: 5px;
 }
+.create-post {
+  height: inherit;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.create-post form {
+  width: 60%;
+}
+.create-post input {
+  padding: 10px;
+  font-size: 1.2rem;
+  color: darkred;
+}
+.create-post textarea {
+  height: 300px;
+  padding: 10px;
+  font-size: 1.2rem;
+  color: darkred;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.form-field label {
+  margin-bottom: 5px;
+}
+.create-post-btn {
+  font-size: 1rem;
+  padding: 5px;
+  background-color: #42924a;
+  color: white;
+}
