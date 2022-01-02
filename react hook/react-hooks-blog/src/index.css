@@ -72,3 +72,28 @@ code {
   background-color: #42924a;
   color: white;
 }
+.home-container {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-container h1 {
+  color: #2684f2;
+  margin-bottom: -2px;
+}
+#blog-by {
+  font-style: italic;
+}
+.post {
+  width: 80%;
+  border: 1px solid burlywood;
+  margin: 10px;
+  padding: 10px;
+}
+.post a {
+  text-decoration: none;
+  color: maroon;
+}

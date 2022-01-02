@@ -20,9 +20,9 @@ function Home() {
       });
   }, []);
   return (
-    <div>
+    <div className="home-container">
       <h1>Tech Blog</h1>
-      <div id="blog-by">Ashish Raghuvanshi</div>
+      <div id="blog-by">Ashish</div>
       {posts.map((post, index) => (
         <div className="post" key={`post-${index}`}>
           <Link to={`/post/${post.id}`}>
