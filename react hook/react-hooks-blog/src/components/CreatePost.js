@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
-
+import { firestore } from '../firebase';
+import { useFormInput } from '../hooks';
 function CreatePost() {
-  const [title, setTitle] = useState('');
-  const [subtitle, setSubtitle] = useState('');
-  const [content, setContent] = useState('');
+  const title = useFormInput('');
+  const subtitle = useFormInput('');
+  const content = useFormInput('');
   function handleSumit(e) {
     e.preventDefault();
-    console.log('title', title);
-    console.log('subtitle', subtitle);
-    console.log('content', content);
+    if (title.value === '' || subtitle.value === '' || content.value === '') {
+      console.error('please enter the fields');
+      window.alert('!!fields are empty!!');
+      return;
+    }
+    console.log('title', title.value);
+    console.log('subtitle', subtitle.value);
+    console.log('content', content.value);
+    firestore.collection('posts').add({
+      title: title.value,
+      subtitle: subtitle.value,
+      content: content.value,
+      createAt: new Date(),
+    });
   }
   return (
     <div className="create-post">
@@ -16,26 +27,15 @@ function CreatePost() {
       <form onSubmit={handleSumit}>
         <div className="form-field">
           <label>Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
+          <input type="text" {...title} />
         </div>
         <div className="form-field">
           <label>Subtitle</label>
-          <input
-            type="text"
-            value={subtitle}
-            onChange={(e) => setSubtitle(e.target.value)}
-          />
+          <input type="text" {...subtitle} />
         </div>
         <div className="form-field">
           <label>Content</label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          ></textarea>
+          <textarea {...content}></textarea>
         </div>
         <button className="create-post-btn">Create Post</button>
       </form>
