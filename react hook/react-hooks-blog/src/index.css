@@ -47,12 +47,14 @@ code {
   padding: 10px;
   font-size: 1.2rem;
   color: darkred;
+  font-weight: bold;
 }
 .create-post textarea {
   height: 300px;
   padding: 10px;
   font-size: 1.2rem;
   color: darkred;
+  font-weight: bold;
 }
 .form-field {
   display: flex;
